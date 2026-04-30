@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>جدول الحصص - مدرسة الشيخ الشعراوي</title>
+    <link rel="icon" type="image/x-icon" href="shaarawy.png">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="schedule-container">
+        <h1 class="page-title">جدول الحصص الأسبوعي</h1>
+        
+        <div class="image-wrapper">
+            <img src="table.png" alt="جدول الحصص" class="main-schedule">
+        </div>
+
+        <div class="back-home">
+            <a href="index.html" class="btn-back">العودة للصفحة الرئيسية</a>
+        </div>
+    </div>
+
+</body>
+<style> 
+.schedule-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.page-title {
+    color: #000080; 
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* برواز الصورة */
+.image-wrapper {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 2px solid #000080;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.main-schedule {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.back-home {
+    margin-top: 40px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #000080;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 128, 0.3);
+}
+
+.btn-back:hover {
+    background-color: #00d4ff; 
+    transform: scale(1.05);
+}
+</style>
+</html>

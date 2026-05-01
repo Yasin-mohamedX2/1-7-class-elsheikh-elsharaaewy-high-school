@@ -292,6 +292,21 @@
         </div>
     </div>
 </div>
+    <div class="luck-game-wrapper">
+    <h2 class="game-title">...... درجـــتك التــــــرم ده هـــــي</h2>
+    
+    <div class="score-card">
+        <div id="disco-counter">
+            <span id="digit1" class="digit">0</span>
+            <span id="digit2" class="digit">0</span>
+            <span id="digit3" class="digit">0</span>
+        </div>
+    </div>
+>
+    <button id="action-btn" class="modern-btn">📕 وريــنا درجــــتك</button>
+    
+    <p id="luck-message"></p>
+</div>
 <footer class="main-footer">
     <div class="footer-container">
         
@@ -485,6 +500,82 @@
     padding: 40px;
     direction: rtl;
 }
+    .luck-game-wrapper {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 450px;
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 128, 0.1);
+}
+
+.game-title {
+    color: #000080;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* المربع المعاصر للأرقام */
+.score-card {
+    background: #000080; 
+    padding: 30px 10px;
+    border-radius: 20px;
+    margin-bottom: 30px; 
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+}
+
+#disco-counter {
+    display: flex;
+    gap: 15px;
+}
+
+.digit {
+    background: #ffffff;
+    color: #000080;
+    font-size: 70px;
+    font-weight: 900;
+    padding: 10px 20px;
+    border-radius: 12px;
+    min-width: 80px;
+    display: inline-block;
+    box-shadow: 0 5px 0 #cccccc; 
+}
+
+/* الزرار المودرن */
+.modern-btn {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 15px 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 128, 0.2);
+}
+
+.modern-btn:hover {
+    background-color: #0055ff; 
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 128, 0.3);
+}
+
+.modern-btn:active {
+    transform: translateY(1px);
+}
+
+#luck-message {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 19px;
+    min-height: 25px;
+}
 
 .subjects-grid {
     display: flex;
@@ -580,4 +671,83 @@
 }
 
 </style>
+<script>
+    let digits = [document.getElementById('digit1'), document.getElementById('digit2'), document.getElementById('digit3')];
+let btn = document.getElementById('action-btn');
+let message = document.getElementById('luck-message');
+let intervals = [null, null, null];
+let isRunning = true;
+
+function startDigit(index) {
+    intervals[index] = setInterval(() => {
+        digits[index].innerText = Math.floor(Math.random() * 10);
+    }, 50 + (index * 20));
+}
+
+digits.forEach((_, i) => startDigit(i));
+
+btn.addEventListener('click', function() {
+    if (isRunning) {
+        isRunning = false;
+        btn.disabled = true;
+        btn.innerText = "بيحدد حظك...";
+
+        let finalScore;
+        let rand = Math.random() * 100;
+
+        if (rand <= 1) { 
+            finalScore = 600;
+        } else if (rand <= 11) { 
+            finalScore = Math.floor(Math.random() * (599 - 550 + 1)) + 550;
+        } else if (rand <= 31) { 
+            finalScore = Math.floor(Math.random() * (549 - 490 + 1)) + 490;
+        } else if (rand <= 76) { 
+            finalScore = Math.floor(Math.random() * (489 - 410 + 1)) + 410;
+        } else if (rand <= 92) { 
+            finalScore = Math.floor(Math.random() * (409 - 310 + 1)) + 310;
+        } else { 
+            finalScore = Math.floor(Math.random() * (309 - 200 + 1)) + 200;
+        }
+
+        let scoreStr = finalScore.toString().padStart(3, '0');
+   
+        setTimeout(() => { clearInterval(intervals[0]); digits[0].innerText = scoreStr[0]; }, 500);
+        setTimeout(() => { clearInterval(intervals[1]); digits[1].innerText = scoreStr[1]; }, 1000);
+        setTimeout(() => { 
+            clearInterval(intervals[2]); 
+            digits[2].innerText = scoreStr[2]; 
+            checkLuck(finalScore);
+            btn.disabled = false;
+            btn.innerText = "جرب تاني 🔄";
+        }, 1500);
+    } else {
+        isRunning = true;
+        message.innerText = "";
+        btn.innerText = "ّ.... درجتــك التــرم ده هـــي ";
+        digits.forEach((_, i) => startDigit(i));
+    }
+});
+
+function checkLuck(score) {
+    if (score === 600) {
+        message.innerText = `النتيجة: ${score} - مبروك أنت الأول على الجمهورية 🏆  ( إنجاز نادر جدا)`;
+        message.style.color = "gold";
+    } else if (score >= 550) {
+        message.innerText = `النتيجة: ${score} - عبقري!  شكلك كده هتطلع من اوائل المدرسة 🌟`;
+        message.style.color = "#00d4ff";
+    } else if (score >= 490) {
+        message.innerText = `النتيجة: ${score} -  حلو.. كمل وحسن مستواك كمان وكمان🎇 `;
+        message.style.color = "#00ff00";
+    } else if (score >= 410) {
+        message.innerText = `النتيجة: ${score} - تمام! كويس انك عديت 👍`;
+        message.style.color = "#ADFF2F";
+    } else if (score >= 310) {
+        message.innerText = `النتيجة: ${score} - حاول .. محتاج مجهود أكبر 💪`;
+        message.style.color = "#FFD700";
+    } else {
+        message.innerText = `النتيجة: ${score} - حظ موفق المرة القادمة.. شد حيلك 😅`;
+        message.style.color = "#FF7F7F";
+    }
+}
+</script>
 </html>

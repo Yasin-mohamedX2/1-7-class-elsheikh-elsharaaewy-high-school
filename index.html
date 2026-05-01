@@ -243,6 +243,21 @@
         </tbody>
     </table>
 </div>
+    <div class="luck-game-wrapper">
+    <h2 class="game-title">...... درجـــتك التــــــرم ده هـــــي</h2>
+    
+    <div class="score-card">
+        <div id="disco-counter">
+            <span id="digit1" class="digit">0</span>
+            <span id="digit2" class="digit">0</span>
+            <span id="digit3" class="digit">0</span>
+        </div>
+    </div>
+>
+    <button id="action-btn" class="modern-btn">📕 وريــنا درجــــتك</button>
+    
+    <p id="luck-message"></p>
+</div>
 <div class="subjects-section">
     <h2 class="section-title">مدرسين المواد</h2>
     <div class="subjects-grid">
@@ -291,21 +306,6 @@
             <div class="teacher-name">أ/ يوسف ليلة</div>
         </div>
     </div>
-</div>
-    <div class="luck-game-wrapper">
-    <h2 class="game-title">...... درجـــتك التــــــرم ده هـــــي</h2>
-    
-    <div class="score-card">
-        <div id="disco-counter">
-            <span id="digit1" class="digit">0</span>
-            <span id="digit2" class="digit">0</span>
-            <span id="digit3" class="digit">0</span>
-        </div>
-    </div>
->
-    <button id="action-btn" class="modern-btn">📕 وريــنا درجــــتك</button>
-    
-    <p id="luck-message"></p>
 </div>
 <footer class="main-footer">
     <div class="footer-container">
@@ -723,7 +723,7 @@ btn.addEventListener('click', function() {
     } else {
         isRunning = true;
         message.innerText = "";
-        btn.innerText = "ّ.... درجتــك التــرم ده هـــي ";
+        btn.innerText = "ّ.... درجتك  ";
         digits.forEach((_, i) => startDigit(i));
     }
 });

@@ -310,6 +310,19 @@
     
     <p id="luck-message"></p>
 </div>
+    <div class="luck-game-wrapper2">
+    <h2 class="game-title2">توقع الأول على الفصل 🏆</h2>
+    
+    <div class="score-card2">
+        <div id="student-container2">
+            <div id="name-display2" class="digit2 name-box2">؟؟؟</div>
+        </div>
+    </div>
+
+    <button id="guess-student-btn2" class="modern-btn2">تخمين الأول 🛑</button>
+    
+    <p id="student-message2"></p>
+</div>
 <div class="subjects-section">
     <h2 class="section-title">مدرسين المواد</h2>
     <div class="subjects-grid">
@@ -642,6 +655,74 @@
     justify-content: center;
     gap: 15px;
 }
+    .luck-game-wrapper2 {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 450px;
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 128, 0.1);
+}
+
+.game-title2 {
+    color: #000080;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.score-card2 {
+    background: #000080;
+    padding: 30px 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    min-height: 120px;
+    align-items: center;
+}
+
+.name-box2 {
+    background: #ffffff;
+    color: #000080;
+    font-size: 22px !important;
+    font-weight: 900;
+    padding: 15px 10px;
+    border-radius: 12px;
+    width: 90%;
+    display: inline-block;
+    box-shadow: 0 5px 0 #cccccc;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.modern-btn2 {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 15px 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 128, 0.2);
+}
+
+.modern-btn2:hover {
+    background-color: #0055ff;
+    transform: translateY(-3px);
+}
+
+#student-message2 {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 19px;
+    min-height: 25px;
+}
 
 .subject-card {
     background-color: #f8f9fa;
@@ -807,5 +888,76 @@ function checkLuck(score) {
         message.style.color = "#FF7F7F";
     }
 }
+    const students2 = [
+    {n: "ياسين محمد محمد", l: "صاحب الموقع 🎥🎬"}, {n: "ابراهيم حسن", l: "هيما"}, 
+    {n: "ابراهيم خالد", l: "X"}, {n: "ابراهيم رامي", l: "X"}, 
+    {n: "ابراهيم محمد ابراهيم", l: "X"}, {n: "احمد الشافعي", l: "شافعي"}, 
+    {n: "احمد محمد عبدالحميد", l: "X"}, {n: "احمد محمد عبداللطيف", l: "X"}, 
+    {n: "احمد نشأت", l: "نشأت"}, {n: "عمر احمد رمضان", l: "MAROO_1"}, 
+    {n: "اياد ايمن", l: "X"}, {n: "حسين اسامة", l: "X"}, 
+    {n: "حسين كمال الدين", l: "X"}, {n: "زياد احمد زكي", l: "X"}, 
+    {n: "زياد احمد محمد جمعة", l: "زيكو"}, {n: "زياد اسامة", l: "X"}, 
+    {n: "زياد رمضان", l: "Zoroo"}, {n: "عبدالرحمن عزوز", l: "X"}, 
+    {n: "عمر حاتم", l: "X"}, {n: "معتز خالد", l: "X"}, 
+    {n: "فهد علي", l: "فهد البطل"}, {n: "كريم حمدي", l: "K E M O"}, 
+    {n: "مازن عمرو", l: "X"}, {n: "مازن محمد عويس", l: "X"}, 
+    {n: "محمد احمد عبدالحكيم", l: "المنوفي 👑"}, {n: "محمد احمد فاروق", l: "فاروق"}, 
+    {n: "محمد احمد محمد ابراهيم", l: "الـ GENUIS ☝"}, {n: "محمد احمد محمد حواس", l: "حواس"}, 
+    {n: "محمد اسلام", l: "سولوم"}, {n: "محمد ايمن", l: "X"}, 
+    {n: "مازن عاطف", l: "X"}, {n: "محمد حمادة", l: "HAMADA"}, 
+    {n: "هاشم ياسر", l: "X"}, {n: "وحيد وائل", l: "وح وح"}, 
+    {n: "ياسين عصام", l: "X"}, {n: "ياسين نهاد كامل", l: "X"}, 
+    {n: "مصطفى عبدالعزيز", l: "صاصا"}, {n: "مصطفى عيد", l: "X"}, 
+    {n: "مصطفى احمد رجب", l: "التوينز"}, {n: "يسري احمد يسري", l: "X"}, 
+    {n: "محمد سيد", l: "الشربيني"}, {n: "محمد فيصل", l: "X"}, 
+    {n: "عمر ابو اليزيد", l: "EL_MORO"}, {n: "يوسف احمد رجب", l: "التوينز"}, 
+    {n: "يوسف احمد السيد", l: "X"}, {n: "يوسف حجاج رمضان", l: "El_JOO_Gojo"}, 
+    {n: "يوسف خالد", l: "X"}, {n: "محمد يحي", l: "X"}, 
+    {n: "مصطفى محمد مصطفى", l: "درويش"}, {n: "يوسف ياسر شوقي", l: "X"}
+];
+
+let display2 = document.getElementById('name-display2');
+let sBtn2 = document.getElementById('guess-student-btn2');
+let sMsg2 = document.getElementById('student-message2');
+let shuffleTimer2;
+let isSpinning2 = true;
+
+function startShuffle2() {
+    shuffleTimer2 = setInterval(() => {
+        let rand = students2[Math.floor(Math.random() * students2.length)];
+        display2.innerText = rand.n;
+    }, 60);
+}
+
+startShuffle2();
+
+sBtn2.addEventListener('click', function() {
+    if (isSpinning2) {
+        isSpinning2 = false;
+        sBtn2.disabled = true;
+        sBtn2.innerText = "بيفرمل...";
+        clearInterval(shuffleTimer2);
+
+        let slowDown2 = setInterval(() => {
+            let rand = students2[Math.floor(Math.random() * students2.length)];
+            display2.innerText = rand.n;
+        }, 150);
+
+        setTimeout(() => {
+            clearInterval(slowDown2);
+            let winner = students2[Math.floor(Math.random() * students2.length)];
+            display2.innerText = winner.n;
+            sMsg2.innerText = `اللقب: ${winner.l}`;
+            sMsg2.style.color = "#000080";
+            sBtn2.disabled = false;
+            sBtn2.innerText = "جرب تاني 🔄";
+        }, 1200);
+    } else {
+        isSpinning2 = true;
+        sMsg2.innerText = "";
+        sBtn2.innerText = "تخمين الأول 🛑";
+        startShuffle2();
+    }
+});
 </script>
 </html>
